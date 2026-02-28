@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://dkgq325oyxt8t"]
+
+[ext_resource type="Texture2D" uid="uid://dipua20hgjwqd" path="res://SpriteSLIME-0009.png" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://bd20lwwptex7m" path="res://enemy.gd" id="1_qi2p4"]
+[ext_resource type="PackedScene" uid="uid://c64nwsm35rikx" path="res://u_dead.tscn" id="2_qi2p4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("1_4gyqm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
+atlas = ExtResource("1_4gyqm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
+atlas = ExtResource("1_4gyqm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wujgv"]
+atlas = ExtResource("1_4gyqm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb8ge"]
+atlas = ExtResource("1_4gyqm")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ltt"]
+atlas = ExtResource("1_4gyqm")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dxifv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wujgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb8ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1ltt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwjut"]
+size = Vector2(30, 17)
+
+[node name="enemy" type="Node2D"]
+script = ExtResource("1_qi2p4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.0000002, -8.25)
+scale = Vector2(0.5625, 0.484375)
+sprite_frames = SubResource("SpriteFrames_dxifv")
+autoplay = "default"
+frame = 1
+frame_progress = 0.31804642
+
+[node name="u dead" parent="AnimatedSprite2D" instance=ExtResource("2_qi2p4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/u dead"]
+position = Vector2(-1, 7.5)
+shape = SubResource("RectangleShape2D_pwjut")
+
+[node name="raycast right" type="RayCast2D" parent="."]
+position = Vector2(-2, -4)
+target_position = Vector2(8, 0)
+
+[node name="ray cast left" type="RayCast2D" parent="."]
+position = Vector2(-3, -5)
+target_position = Vector2(-8, 0)

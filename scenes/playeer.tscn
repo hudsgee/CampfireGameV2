@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://c3s3wm4r7pj7h" path="res://scripts/playeer.gd" id="1_70wjy"]
 [ext_resource type="Texture2D" uid="uid://dpj8mv1ngeng3" path="res://Sprite idle-0002.png" id="2_wib1g"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_f50pn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wib1g"]
+size = Vector2(13, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_imsnx"]
 atlas = ExtResource("2_wib1g")
@@ -33,11 +34,12 @@ collision_layer = 2
 script = ExtResource("1_70wjy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -10)
-shape = SubResource("CircleShape2D_f50pn")
+position = Vector2(-1.5, -8)
+shape = SubResource("RectangleShape2D_wib1g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.009742e-28, -10)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_x4n1u")
 autoplay = "default"
+frame_progress = 0.4075042
