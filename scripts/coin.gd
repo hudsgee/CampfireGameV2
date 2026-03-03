@@ -5,6 +5,6 @@ func _on_body_entered(body: Node2D) -> void:
 		body.add_score(1)
 		var p = AudioStreamPlayer.new()
 		p.stream = preload("res://assets/brackeys_platformer_assets/sounds/coin.wav")
-		get_tree().current_scene.add_child(p)  # or add_child(self) if you like
+		get_tree().current_scene.add_child(p)
 		p.play()
 		queue_free()
